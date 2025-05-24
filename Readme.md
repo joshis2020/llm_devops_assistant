@@ -2,11 +2,16 @@
 
 A modular assistant powered by LLMs to answer cloud engineering and DevOps queries and perform safe actions on AWS and Kubernetes.
 
+This is a project to understand how LLM can be integrated in the DevOps domain to make the developers life easy.
+
+We want the LLM (Claude via AWS Bedrock) to analyze a simple human prompt in natural language, classify it and there by route the request to the right plugin to help the DevOps assistant take action. The heavy lifting of checking the ec2 instances, getting the pod logs would be done by Boto3 and Kubernetes clients.
+
 ## 🔍 Features
 - Ask natural language questions like:
   - "Which EC2 instances are stopped?"
   - "Restart pods in crashloop in dev namespace."
   - "Show today's AWS cost."
+  - "Summarise the logs for the pod nginx"
 - CLI and optional FastAPI interface
 - Modular plugin-based architecture
 
@@ -39,7 +44,7 @@ llm-devops-assistant/
 │   ├── ec2_plugin.py
 │   ├── k8s_plugin.py
 │   └── cost_plugin.py
-    └── logs_plugin.py
+|   └── logs_plugin.py
 
 ├── api/                 # FastAPI app
 │   └── app.py
