@@ -6,7 +6,7 @@ This is a project to understand how LLM can be integrated in the DevOps domain t
 
 We want the LLM (Claude via AWS Bedrock) to analyze a simple human prompt in natural language, classify it and there by route the request to the right plugin to help the DevOps assistant take action. The heavy lifting of checking the ec2 instances, getting the pod logs would be done by Boto3 and Kubernetes clients.
 
-## 🔍 Features
+##  Features
 - Ask natural language questions like:
   - "Which EC2 instances are stopped?"
   - "Restart pods in crashloop in dev namespace."
@@ -15,7 +15,7 @@ We want the LLM (Claude via AWS Bedrock) to analyze a simple human prompt in nat
 - CLI and optional FastAPI interface
 - Modular plugin-based architecture
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Python 3.10+
@@ -33,7 +33,7 @@ python assistant/main.py "Which EC2s are stopped?"
 uvicorn api.app:app --reload
 ```
 
-## 📁 Folder Structure
+##  Folder Structure
 ```
 llm-devops-assistant/
 ├── assistant/
