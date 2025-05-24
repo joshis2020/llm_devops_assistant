@@ -33,3 +33,24 @@ Assistant:"""
 
     completion = json.loads(response["body"].read())["completion"]
     return completion.strip()
+
+
+def invoke_bedrock(prompt: str, model_id="anthropic.claude-instant-v1", max_tokens=500) -> str:
+    body = {
+        "anthropic_version": "bedrock-2023-05-31",
+        "max_tokens": max_tokens,
+        "temperature": 0.2,
+        "messages": [
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+    response = bedrock.invoke_model(
+        modelId=model_id,
+        body=json.dumps(body),
+        contentType="application/json",
+        accept="application/json"
+    )
+
+    result = json.loads(response["body"].read())
+    return result["content"][0]["text"] if "content" in result else "No response from Bedrock."

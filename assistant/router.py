@@ -19,6 +19,6 @@ def route_query(prompt: str):
 
     if intent == "summarize_logs":
         from plugins.logs_plugin import LogsPlugin
-        return LogsPlugin().execute(intent)
+        return LogsPlugin().execute(prompt)
 
     return f"Unknown intent: {intent}"

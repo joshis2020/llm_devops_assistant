@@ -3,9 +3,6 @@ from datetime import datetime, timedelta
 from plugins.base_plugin import BasePlugin
 
 class CostPlugin(BasePlugin):
-    def match(self, prompt: str) -> bool:
-        return "cost" in prompt.lower() and "report" in prompt.lower()
-
 
     def execute(self, prompt: str) -> str:
         ce = boto3.client("ce")
