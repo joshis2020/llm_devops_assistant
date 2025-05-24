@@ -9,7 +9,6 @@ A modular assistant powered by LLMs to answer cloud engineering and DevOps queri
   - "Show today's AWS cost."
 - CLI and optional FastAPI interface
 - Modular plugin-based architecture
-- Audit logging and dry-run mode for safety
 
 ## 🚀 Getting Started
 
@@ -40,11 +39,10 @@ llm-devops-assistant/
 │   ├── ec2_plugin.py
 │   ├── k8s_plugin.py
 │   └── cost_plugin.py
+    └── logs_plugin.py
+
 ├── api/                 # FastAPI app
 │   └── app.py
-├── logs/                # Logged queries & actions
-├── tests/               # Unit tests
-├── Dockerfile
 ├── requirements.txt
 └── README.md
 ```
