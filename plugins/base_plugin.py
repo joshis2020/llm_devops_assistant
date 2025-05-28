@@ -1,4 +1,6 @@
-class BasePlugin:
+from abc import ABC, abstractmethod
 
-    def execute(self, prompt: str) -> str:
-        raise "NotImplementedError" 
+class BasePlugin(ABC):
+    @abstractmethod
+    def execute(self, prompt: str = None) -> str:
+        raise NotImplementedError

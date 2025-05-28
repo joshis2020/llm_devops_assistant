@@ -1,13 +1,14 @@
 import sys
-from assistant.core import handle_prompt
-
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python assistant/main.py '<your prompt>'")
-        return
-    prompt = sys.argv[1]
-    response = handle_prompt(prompt)
-    print(response)
+from router import route_intent
+from memory import ContextMemory
 
 if __name__ == "__main__":
-    main()
+    user_input = " ".join(sys.argv[1:])
+    print(f"[LLM] Received: {user_input}")
+
+    memory = ContextMemory()
+    memory.add_user_input(user_input)
+
+    result = route_intent(memory)
+    memory.add_model_response(result)
+    print(result)
